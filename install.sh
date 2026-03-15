@@ -156,7 +156,11 @@ detect_nvidia() {
 
   if [[ ${gpu} == *' nvidia '* ]]; then
     echo ">>> Detected Nvidia GPU, installing driver now"
-    sudo apt install -y system76-driver-nvidia
+    sudo apt install software-properties-common ubuntu-drivers-common -y
+    sudo add-apt-repository ppa:graphics-drivers/ppa -y
+    sudo apt update
+
+    sudo ubuntu-drivers autoinstall
   fi
 }
 
