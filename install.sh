@@ -54,6 +54,8 @@ install_packages() {
 
   sudo apt remove firefox -y
 
+  sudo usermod -aG docker "${USER}"
+
   rustup default stable
 
   ~/.cargo/bin/cargo install starship
